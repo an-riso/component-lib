@@ -9,10 +9,11 @@ withDefaults(
     headers: string[]
     data: any[]
     keys: string[]
+    viewPaginator: boolean
     noDataMessage: string
     loading: boolean
-    viewPaginator: boolean
     pageCount?: number
+    columnSort: string[]
   }>(),
   {
     loading: false,
@@ -47,25 +48,27 @@ function onPageChange(pageNumber: number) {
 let ascending = false
 let sortColumn = ''
 
-function sortTable(col: any, data: any[]) {
-  console.log('sortTable', col, data)
-  if (sortColumn === col) {
-    ascending = !ascending
-  } else {
-    ascending = true
-    sortColumn = col
-  }
-
-  // var ascending = ascending
-
-  data.sort(function (a, b) {
-    if (a[col] > b[col]) {
-      return ascending ? 1 : -1
-    } else if (a[col] < b[col]) {
-      return ascending ? -1 : 1
+function sortTable(col: any, data: any[], columnSort: string[]) {
+  console.log('sortTable', col, data, columnSort.includes(col))
+  if (columnSort.includes(col)) {
+    if (sortColumn === col) {
+      ascending = !ascending
+    } else {
+      ascending = true
+      sortColumn = col
     }
-    return 0
-  })
+
+    // var ascending = ascending
+
+    data.sort(function (a, b) {
+      if (a[col] > b[col]) {
+        return ascending ? 1 : -1
+      } else if (a[col] < b[col]) {
+        return ascending ? -1 : 1
+      }
+      return 0
+    })
+  }
 }
 </script>
 
@@ -79,7 +82,7 @@ function sortTable(col: any, data: any[]) {
             :key="i"
             scope="col"
             class="px-6 py-3 hover:cursor-pointer"
-            @click="sortTable(keys[i], data)"
+            @click="sortTable(keys[i], data, columnSort)"
           >
             {{ header }}
 
@@ -124,5 +127,5 @@ function sortTable(col: any, data: any[]) {
       </tbody>
     </table>
   </div>
-  <VuePaginator v-if="viewPaginator" :pageCount="pageCount" @onPageChange="onPageChange" />
+  <VuePaginator v-if="viewPaginator" :pageCount="pageCount" v-on:onPageChange="onPageChange" />
 </template>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import VueTable from '../src/components/table/VueTable.vue'
-import data from '../src/stories/assets/data.json'
+import VueTable from './components/table/AppVueTable.vue'
+import data from '../src/components/data.json'
 import './static/custom-style.css'
 import { ref } from 'vue'
 
@@ -10,7 +10,7 @@ const keyValues = ['id', 'name', 'date_of_birth', 'course', 'department', 'fees_
 const itemsPerPage = 8
 
 const loading = ref(false)
-const paginator = ref(false)
+const paginator = ref(true)
 
 const pageCount = Math.ceil(data.length / itemsPerPage)
 </script>
@@ -23,16 +23,16 @@ const pageCount = Math.ceil(data.length / itemsPerPage)
       :data="data"
       :loading="loading"
       :page-count="pageCount"
-      :view-paginator="paginator"
+      :viewPaginator="paginator"
     >
-      <template #th>
+      <!--template #th>
         <th>Actions</th>
       </template>
       <template #td="{ item }">
         <td class="flex">
           <button @click="console.log('item')">@</button>
         </td>
-      </template>
+      </template-->
     </VueTable>
   </div>
 </template>

@@ -1,7 +1,7 @@
-import AppButton from './AppButton.vue'
+import AppButton from './Button.vue'
 
 export default {
-  title: 'Components/AppButton',
+  title: 'Test/AppButton',
   component: AppButton,
   argTypes: {
     outlined: { control: 'boolean' }
@@ -17,10 +17,4 @@ const Template = (args) => ({
 export const Primary = Template.bind({})
 Primary.args = {
   default: 'First Button'
-}
-
-export const Outlined = Template.bind({})
-Outlined.args = {
-  ...Primary.args,
-  outlined: true
 }

@@ -21,7 +21,7 @@
 </template>
 
 <script setup>
-import AppButton from './AppButton.vue'
+import AppButton from './Button.vue'
 
 defineProps({
   title: String,

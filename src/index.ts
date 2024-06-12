@@ -1,3 +1,3 @@
-import VueTable from './components/table/VueTable.vue'
+import VueTable from './components/table/AppVueTable.vue'
 
 export { VueTable }

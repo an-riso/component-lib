@@ -1,7 +1,7 @@
 import BuyImageCard from './ImageCard.vue'
 
 export default {
-  title: 'Components/ImageCard',
+  title: 'Test/ImageCard',
   component: BuyImageCard
 }
 
