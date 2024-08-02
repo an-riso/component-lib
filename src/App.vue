@@ -17,7 +17,7 @@ const pageCount = Math.ceil(data.length / itemsPerPage)
 
 <template>
   <div style="width: 100%; position: absolute; left: 0; right: 0; margin: 0 auto; margin-top: 2%">
-    <VueTable
+    <!--VueTable
       :headers="headers"
       :keys="keyValues"
       :data="data"
@@ -25,7 +25,7 @@ const pageCount = Math.ceil(data.length / itemsPerPage)
       :page-count="pageCount"
       :viewPaginator="paginator"
     >
-      <!--template #th>
+      <template #th>
         <th>Actions</th>
       </template>
       <template #td="{ item }">

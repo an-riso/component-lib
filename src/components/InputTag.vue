@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="flex items-center flex-wrap border border-solid form-control shadow appearance-none rounded w-full py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline hover:border-zinc-700"
+      class="flex items-center flex-wrap border border-solid form-control shadow appearance-none rounded w-full py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline hover:border-oversonic-blue"
     >
       <div class="flex items-center flex-wrap">
         <span
@@ -15,13 +15,16 @@
           </button>
         </span>
         <input
-          class="py-1 grow border-[0rem] outline-none"
+          type="text"
+          class="py-1 grow border-[0rem] outline-none w-60"
           v-model="newTag"
+          @keydown.space.prevent="handleKeydown"
           @keydown.enter.prevent="handleKeydown"
           @keydown.delete="removeLastTag"
-          placeholder="Add a label and press Enter"
+          placeholder="Add a label and press Enter/Space"
           @input="filterOptions"
         />
+        <p v-if="errors" class="text-oversonic-red text-xs ml-1">*</p>
       </div>
     </div>
     <ul
@@ -46,6 +49,10 @@ export default {
     value: {
       type: Array,
       default: () => []
+    },
+    error: {
+      type: [String, Boolean],
+      default: ''
     }
   },
   data() {
@@ -58,7 +65,6 @@ export default {
   },
   watch: {
     value(newVal) {
-      console.log(newVal)
       this.tags = [...newVal]
     }
   },
@@ -78,6 +84,7 @@ export default {
         this.tags.push(option)
         this.newTag = ''
         this.filteredOptions = []
+        this.$emit('new-tag', this.tags)
       }
     },
     handleKeydown(event) {
@@ -87,20 +94,19 @@ export default {
     addTag() {
       if (this.newTag && !this.tags.includes(this.newTag)) {
         this.tags.push(this.newTag)
-        console.log(this.newTag, this.tags)
-        this.$emit('input', this.tags)
+        this.$emit('new-tag', this.tags)
         this.newTag = ''
       }
       this.filteredOptions = []
     },
     removeTag(index) {
       this.tags.splice(index, 1)
-      this.$emit('input', this.tags)
+      this.$emit('new-tag', this.tags)
     },
     removeLastTag(event) {
       if (event.target.value === '' && this.tags.length > 0) {
         this.tags.pop()
-        this.$emit('input', this.tags)
+        this.$emit('new-tag', this.tags)
       }
     }
   }
