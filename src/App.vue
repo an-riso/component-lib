@@ -32,7 +32,7 @@ const pageCount = Math.ceil(data.length / itemsPerPage)
         <td class="flex">
           <button @click="console.log('item')">@</button>
         </td>
-      </template-->
-    </VueTable>
+      </template>
+    </VueTable-->
   </div>
 </template>

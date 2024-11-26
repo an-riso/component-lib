@@ -1,0 +1,30 @@
+<svg width="23" height="24" viewBox="0 0 23 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="23" height="24" fill="#006600"/>
+
+  
+  <g class="wave-bar" style="--delay: 0.0s;">
+    <rect x="6.708" y="10" width="2" height="9" fill="white"/>
+  </g>
+  
+  <g class="wave-bar" style="--delay: 0.2s;">
+    <rect x="10.541" y="4" width="2" height="15" fill="white"/>
+  </g>
+  
+  
+  <g class="wave-bar" style="--delay: 0.4s;">
+    <rect x="14.375" y="15" width="2" height="4" fill="white"/>
+  </g>
+
+</svg>
+
+<style>
+  @keyframes fade {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+  }
+
+  .wave-bar rect {
+    animation: fade 1.3s ease-in-out infinite;
+    animation-delay: var(--delay);
+  }
+</style>
