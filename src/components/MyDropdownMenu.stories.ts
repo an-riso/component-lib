@@ -34,22 +34,26 @@ const Template = (args: any) => ({
 export const BasicMenu: Story = Template.bind({})
 BasicMenu.args = {
   menuItems: [
-    { label: 'Edit', icon: '../static/img/icon_edit.svg', action: () => alert('Edit clicked') },
-    { label: 'Delete', icon: '../static/img/icon_delete.svg', action: () => alert('Delete clicked') },
-    { label: 'Download', icon: '../static/img/icon_download.svg', action: () => alert('Download clicked') }
+    { label: 'Edit', icon: './src/static/img/icon_edit.svg', action: () => alert('Edit clicked') },
+    { label: 'Delete', icon: './src/static/img/icon_delete.svg', action: () => alert('Delete clicked') },
+    { label: 'Save', icon: './src/static/img/icon_save.svg', action: () => alert('Save clicked') }
   ]
 }
 
 export const CustomIconsMenu: Story = Template.bind({})
 CustomIconsMenu.args = {
   menuItems: [
-    { label: 'Home', icon: '../static/img/icon_logo.svg', action: () => alert('Home clicked') },
+    {
+      label: 'Calendar',
+      icon: './src/static/img/icon_calendar.svg',
+      action: () => alert('Calendar clicked')
+    },
     {
       label: 'Robot',
-      icon: '../static/img/icon_Robot.svg',
+      icon: './src/static/img/icon_robot.svg',
       action: () => alert('Robot clicked')
     },
-    { label: 'Save', icon: '../static/img/icon_save.svg', action: () => alert('Save clicked') }
+    { label: 'Save', icon: './src/static/img/icon_save.svg', action: () => alert('Save clicked') }
   ]
 }
 

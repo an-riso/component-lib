@@ -34,7 +34,7 @@
         <div
           v-if="isDropdownOpen"
           class="absolute bg-white border rounded shadow-lg w-max z-10 overflow-auto"
-          :class="[openUpward ? 'right-0 ' : 'left-0', allSelected ? 'h-auto' : 'h-[190px]']"
+          :class="[openUpward ? 'right-0 ' : 'left-0', allSelected ? 'h-auto' : 'max-h-[190px]']"
         >
           <button
             v-if="peopleData.length > 0"

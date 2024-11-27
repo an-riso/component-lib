@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import VueTable from './components/table/AppVueTable.vue'
 import data from '../src/components/data.json'
+
 import './static/custom-style.css'
 import { ref } from 'vue'
 

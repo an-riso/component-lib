@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./static/**/*.{html,js,vue,ts}', './templates/**/*.{html,js,vue,ts}'],
+  content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
@@ -33,32 +33,5 @@ module.exports = {
       }
     }
   },
-  daisyui: {
-    themes: [
-      {
-        oversonic: {
-          primary: '#1fada2',
-          'primary-content': '#FFFFFF',
-          secondary: '#41607a',
-          'secondary-content': '#FCFCFC',
-          accent: '#0087e9',
-          'accent-content': '#000613',
-          neutral: '#201418',
-          'neutral-content': '#cdcacb',
-          'base-100': '#f5fefd',
-          'base-200': '#d5dddc',
-          'base-300': '#b6bdbc',
-          'base-content': '#18212b',
-          info: '#00b2e0',
-          'info-content': '#111827',
-          success: '#00eba0',
-          'success-content': '#001309',
-          warning: '#fdc448',
-          'warning-content': '#040404',
-          error: '#ff2952',
-          'error-content': '#FFFFFF'
-        }
-      }
-    ]
-  }
+  plugins: []
 }

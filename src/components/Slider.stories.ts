@@ -36,6 +36,7 @@ export const SingleSlider: Story = {
   args: {
     min: 0,
     max: 100,
+    value1: 0,
     step: 1,
     value2: 50,
     isDouble: false,

@@ -87,11 +87,17 @@ function sortTable(col: any, data: any[], columnSort: string[]) {
             {{ header }}
 
             <button v-if="keys[i] == sortColumn" class="text-black">
-              <img :key="i" v-if="ascending" src="../img/icon-arrow.svg" alt="Sort" class="h-3 w-3" />
+              <img
+                :key="i"
+                v-if="ascending"
+                src="../../static/img/icon-arrow.svg"
+                alt="Sort"
+                class="h-3 w-3"
+              />
               <img
                 :key="i"
                 v-if="!ascending"
-                src="../img/icon-arrow.svg"
+                src="../../static/img/icon-arrow.svg"
                 alt="Sort"
                 class="h-3 w-3"
                 style="transform: rotate(-180deg)"
