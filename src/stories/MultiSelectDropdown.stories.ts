@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 //@ts-ignore
-import MultiSelectDropdown from './MultiSelectDropdown.vue'
+import MultiSelectDropdown from '../components/MultiSelectDropdown.vue'
 
 const meta: Meta<typeof MultiSelectDropdown> = {
   title: 'Oversonic components/MultiSelectDropdown',
@@ -26,13 +26,16 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-// Template base per le storie
 const Template = (args: any) => ({
   components: { MultiSelectDropdown },
   setup() {
     return { args }
   },
-  template: '<MultiSelectDropdown v-bind="args" @update:selectedIds="onUpdate" />',
+  template: ` 
+    <div class="h-60">
+      <MultiSelectDropdown v-bind="args" @update:selectedIds="onUpdate" />
+    </div>
+    `,
   methods: {
     onUpdate: (selectedIds: string[]) => {
       console.log('Selected IDs:', selectedIds)
@@ -40,7 +43,6 @@ const Template = (args: any) => ({
   }
 })
 
-// Story: Dropdown base con dati di esempio
 export const BasicDropdown: Story = Template.bind({})
 BasicDropdown.args = {
   initialIds: [],
@@ -52,7 +54,6 @@ BasicDropdown.args = {
   disabled: false
 }
 
-// Story: Dropdown con persone pre-selezionate
 export const PreSelectedDropdown: Story = Template.bind({})
 PreSelectedDropdown.args = {
   initialIds: ['1', '2'],
@@ -64,7 +65,6 @@ PreSelectedDropdown.args = {
   disabled: false
 }
 
-// Story: Dropdown vuoto
 export const EmptyDropdown: Story = Template.bind({})
 EmptyDropdown.args = {
   initialIds: [],
@@ -72,7 +72,6 @@ EmptyDropdown.args = {
   disabled: false
 }
 
-// Story: Dropdown disabilitato
 export const DisabledDropdown: Story = Template.bind({})
 DisabledDropdown.args = {
   initialIds: [],
@@ -84,7 +83,6 @@ DisabledDropdown.args = {
   disabled: true
 }
 
-// Story: Dropdown con "Select All"
 export const SelectAllDropdown: Story = Template.bind({})
 SelectAllDropdown.args = {
   initialIds: [],

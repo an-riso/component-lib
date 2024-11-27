@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 //@ts-ignore
-import Slider from './Slider.vue'
+import Slider from '../components/Slider.vue'
 
 const meta: Meta<typeof Slider> = {
   title: 'Oversonic components/Slider',
@@ -14,6 +14,7 @@ const meta: Meta<typeof Slider> = {
     value2: { control: 'number' },
     isDouble: { control: 'boolean' },
     isVisibleRange: { control: 'boolean' },
+    //@ts-ignore
     colors: { control: 'array' }
   },
   args: {

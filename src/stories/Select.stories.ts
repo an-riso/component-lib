@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-//@ts-ignore
-import InputSelect from './InputSelect.vue'
+import InputSelect from '../components/InputSelect.vue'
 
 const meta: Meta<typeof InputSelect> = {
   title: 'Oversonic components/InputSelect',
@@ -22,9 +21,14 @@ const Template = (args: any) => ({
   setup() {
     return { args }
   },
-  template: '<InputSelect v-bind="args" />'
+  template: '<InputSelect v-bind="args" @update="onUpdate"/>',
+  methods: {
+    onUpdate: (selectedIds: string[]) => {
+      console.log('Selected ID:', selectedIds)
+    }
+  }
 })
-//@ts-ignore
+
 export const SingleSelect: Story = Template.bind({})
 SingleSelect.args = {
   keyProp: 'single-select',
@@ -36,7 +40,7 @@ SingleSelect.args = {
   ],
   type: 'single'
 }
-//@ts-ignore
+
 export const MultiSelect: Story = Template.bind({})
 MultiSelect.args = {
   keyProp: 'multi-select',
@@ -48,14 +52,14 @@ MultiSelect.args = {
   ],
   type: 'multi'
 }
-//@ts-ignore
+
 export const NumberSelect: Story = Template.bind({})
 NumberSelect.args = {
   keyProp: 'number-select',
   placeholder: 'Enter a number',
   type: 'number'
 }
-//@ts-ignore
+
 export const MultiSelectWithDropdowns: Story = Template.bind({})
 MultiSelectWithDropdowns.args = {
   keyProp: 'multi-select-dropdowns',

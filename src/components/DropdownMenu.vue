@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/valid-v-on -->
 <template>
   <div class="relative inline-block text-left ml-auto" ref="dropdownMobilePatientMenu">
     <button
@@ -12,7 +11,7 @@
     <div
       v-if="isMenuOpen"
       class="origin-top-right absolute right-0 mt-2 w-52 rounded-lg shadow-lg bg-white ring-1 ring-oversonic-dark ring-opacity-5 focus:outline-none z-50"
-      @click.away="closeMenu($event)"
+      @click="closeMenu($event)"
     >
       <div class="w-full">
         <!-- Loop through menu items passed via props -->

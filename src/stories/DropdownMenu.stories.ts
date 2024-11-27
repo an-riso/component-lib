@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 //@ts-ignore
-import MyDropdownMenu from './DropdownMenu.vue'
+import DropdownMenu from '../components/DropdownMenu.vue'
 
-const meta: Meta<typeof MyDropdownMenu> = {
-  title: 'Oversonic components/MyDropdownMenu',
-  component: MyDropdownMenu,
+const meta: Meta<typeof DropdownMenu> = {
+  title: 'Oversonic components/DropdownMenu',
+  component: DropdownMenu,
   tags: ['autodocs'],
   argTypes: {
     menuItems: {
@@ -16,17 +16,16 @@ const meta: Meta<typeof MyDropdownMenu> = {
 }
 
 export default meta
-
 type Story = StoryObj<typeof meta>
 
 const Template = (args: any) => ({
-  components: { MyDropdownMenu },
+  components: { DropdownMenu },
   setup() {
     return { args }
   },
   template: `
-    <div class="flex justify-end">
-      <MyDropdownMenu v-bind="args" />
+    <div class="flex justify-end h-60">
+      <DropdownMenu v-bind="args" />
     </div>
   `
 })
